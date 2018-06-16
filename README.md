@@ -1,5 +1,6 @@
-# Node-RED-weather-icons
-Node Red and weather underground weather icons
+# Node-RED-weather-dashboard
+
+Node Red and weather dashboard, MQTT, Raspberry Pi, ESP8266, weather icons
 
 Weather icons forked from https://github.com/manifestinteractive/weather-underground-icons
 
