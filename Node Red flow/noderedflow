@@ -1,0 +1,402 @@
+[
+    {
+        "id": "371bdcb.f4bfe24",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "1563ad82.887812",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            }
+        },
+        "site": {
+            "name": "Sweet Home",
+            "hideToolbar": "true",
+            "allowSwipe": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 60,
+                "sy": 60,
+                "gx": 0,
+                "gy": 0,
+                "cx": 0,
+                "cy": 0,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "b9d710ad.56cb4",
+        "type": "ui_tab",
+        "name": "Tab 1",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "d16297a3.6277f8",
+        "type": "mqtt-broker",
+        "z": "",
+        "name": "MQTT",
+        "broker": "localhost",
+        "port": "1883",
+        "clientid": "",
+        "usetls": false,
+        "compatmode": true,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "9782f4f2.ddc9b8",
+        "type": "ui_group",
+        "z": "",
+        "name": "Default",
+        "tab": "b9d710ad.56cb4",
+        "disp": false,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "8d55d663.806678",
+        "type": "ui_gauge",
+        "z": "371bdcb.f4bfe24",
+        "name": "",
+        "group": "9782f4f2.ddc9b8",
+        "order": 1,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": " ",
+        "label": "",
+        "format": "{{value | number:1}}°C",
+        "min": "-10",
+        "max": "60",
+        "colors": [
+            "#00e4ff",
+            "#0caeb1",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 933.0000114440918,
+        "y": 136.00000095367432,
+        "wires": []
+    },
+    {
+        "id": "9c53ef2a.8ded7",
+        "type": "mqtt in",
+        "z": "371bdcb.f4bfe24",
+        "name": "",
+        "topic": "home/temperature",
+        "qos": "2",
+        "broker": "d16297a3.6277f8",
+        "x": 128.00000762939453,
+        "y": 136.00000190734863,
+        "wires": [
+            [
+                "8d55d663.806678",
+                "880f2910.85eb38"
+            ]
+        ]
+    },
+    {
+        "id": "a96c0b9e.e3eb48",
+        "type": "mqtt in",
+        "z": "371bdcb.f4bfe24",
+        "name": "",
+        "topic": "home/humi",
+        "qos": "2",
+        "broker": "d16297a3.6277f8",
+        "x": 95,
+        "y": 48.00000190734863,
+        "wires": [
+            [
+                "3bfedb00.f2bb14",
+                "880f2910.85eb38"
+            ]
+        ]
+    },
+    {
+        "id": "3bfedb00.f2bb14",
+        "type": "ui_gauge",
+        "z": "371bdcb.f4bfe24",
+        "name": "",
+        "group": "9782f4f2.ddc9b8",
+        "order": 2,
+        "width": "6",
+        "height": "5",
+        "gtype": "gage",
+        "title": " ",
+        "label": "",
+        "format": "{{value | number:1}}%",
+        "min": "0",
+        "max": "100",
+        "colors": [
+            "#00e4ff",
+            "#0caeb1",
+            "#3f2ed3"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "x": 932.0000133514404,
+        "y": 47,
+        "wires": []
+    },
+    {
+        "id": "880f2910.85eb38",
+        "type": "ui_chart",
+        "z": "371bdcb.f4bfe24",
+        "name": "",
+        "group": "9782f4f2.ddc9b8",
+        "order": 7,
+        "width": "12",
+        "height": "5",
+        "label": " ",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "86400",
+        "cutout": 0,
+        "useOneColor": false,
+        "colors": [
+            "#1f77b4",
+            "#000000",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "useOldStyle": false,
+        "x": 849.7001113891602,
+        "y": 92.00000095367432,
+        "wires": [
+            [],
+            []
+        ]
+    },
+    {
+        "id": "9f53ce80.3bcec",
+        "type": "wunderground in",
+        "z": "371bdcb.f4bfe24",
+        "name": "",
+        "lon": "172.622631",
+        "lat": "-43.548000",
+        "city": "",
+        "country": "",
+        "x": 110,
+        "y": 300,
+        "wires": [
+            [
+                "2a4f47bd.1a9878",
+                "bfb33db0.3e872",
+                "867d994f.6e99b8",
+                "d6658729.44f7f8",
+                "978ef85b.5a5998"
+            ]
+        ]
+    },
+    {
+        "id": "2a4f47bd.1a9878",
+        "type": "debug",
+        "z": "371bdcb.f4bfe24",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "x": 392.7000045776367,
+        "y": 215.00000381469727,
+        "wires": []
+    },
+    {
+        "id": "bfb33db0.3e872",
+        "type": "ui_text",
+        "z": "371bdcb.f4bfe24",
+        "group": "9782f4f2.ddc9b8",
+        "order": 4,
+        "width": "3",
+        "height": "3",
+        "name": "Out Temp",
+        "label": "<font size=\"6\">Outside",
+        "format": "<font size=\"8\">{{payload.tempc}}°C",
+        "layout": "col-center",
+        "x": 901.7000122070312,
+        "y": 262.40000438690186,
+        "wires": []
+    },
+    {
+        "id": "867d994f.6e99b8",
+        "type": "ui_text",
+        "z": "371bdcb.f4bfe24",
+        "group": "9782f4f2.ddc9b8",
+        "order": 5,
+        "width": "3",
+        "height": "3",
+        "name": "",
+        "label": "Wind Speed",
+        "format": "<font size=\"6\">{{payload.windspeed | number:1}}Km/h",
+        "layout": "col-center",
+        "x": 911.7000122070312,
+        "y": 309.40000438690186,
+        "wires": []
+    },
+    {
+        "id": "978ef85b.5a5998",
+        "type": "function",
+        "z": "371bdcb.f4bfe24",
+        "name": "Convert Wind Direction",
+        "func": "var winddir = msg.payload.winddirection;\nif (winddir > 337.5 || winddir < 22.5){\n    msg.payload = \"/WindDir/windn.png\";\n}\nelse if (winddir >= 22.5 || winddir < 67.5){\n    msg.payload = \"/WindDir/windne.png\";\n}\nelse if (winddir >= 67.5 || winddir < 112.5){\n    msg.payload = \"/WindDir/winde.png\";\n}\nelse if (winddir >= 112.5 || winddir < 157.5){\n    msg.payload = \"/WindDir/windse.png\";\n}\nelse if (winddir >= 157.5 || winddir < 202.5){\n    msg.payload = \"/WindDir/winds.png\";\n}\nelse if (winddir >= 202.5 || winddir < 247.5){\n    msg.payload = \"/WindDir/windsw.png\";\n}\nelse if (winddir >= 247.5 || winddir < 292.5){\n    msg.payload = \"/WindDir/windw.png\";\n}\nelse if (winddir >= 292.5 || winddir < 237.5){\n    msg.payload = \"/WindDir/windnw.png\";\n}\nelse msg.payload = \"/myimages/unknown.png\";\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 360,
+        "wires": [
+            [
+                "f805485d.b791f8"
+            ]
+        ]
+    },
+    {
+        "id": "d6658729.44f7f8",
+        "type": "function",
+        "z": "371bdcb.f4bfe24",
+        "name": "Convert Weather info to image",
+        "func": "if (msg.payload.weather == \"Clear\" || msg.payload.weather == \"Sunny\"){\n    msg.payload = \"/myimages/clear.png\";\n}\nelse if (msg.payload.weather == \"Cloudy\" || msg.payload.weather == \"Overcast\"){\n    msg.payload = \"/myimages/cloudy.png\";\n}\nelse if (msg.payload.weather == \"Fog\"){\n    msg.payload = \"/myimages/fog.png\";\n}\nelse if (msg.payload.weather == \"Mostly Cloudy\" || msg.payload.weather == \"Partly Sunny\"){\n    msg.payload = \"/myimages/mostlycloudy.png\";\n}\nelse if (msg.payload.weather == \"Partly Cloudy\" || msg.payload.weather == \"Mostly Sunny\"){\n    msg.payload = \"/myimages/partlycloudy.png\";\n}\nelse if (msg.payload.weather == \"Rain\"){\n    msg.payload = \"/myimages/rain.png\";\n}\nelse if (msg.payload.weather == \"Snow\" || msg.payload.weather == \"Sleet\" || msg.payload.weather == \"Freezing Rain\"){\n    msg.payload = \"/myimages/snow.png\";\n}\nelse if (msg.payload.weather == \"Thunderstorms\" || msg.payload.weather == \"Thunderstorm\"){\n    msg.payload = \"/myimages/tstorms.png\";\n}\nelse msg.payload = \"/myimages/unknown.png\";\nreturn msg",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 550,
+        "y": 420,
+        "wires": [
+            [
+                "c2d68e41.7ecbc"
+            ]
+        ]
+    },
+    {
+        "id": "c2d68e41.7ecbc",
+        "type": "ui_template",
+        "z": "371bdcb.f4bfe24",
+        "group": "9782f4f2.ddc9b8",
+        "name": " HTML Template",
+        "order": 3,
+        "width": "3",
+        "height": "3",
+        "format": "<p><img style=\"display: block; margin-left: auto; margin-right: auto;\" src={{msg.payload}} width=\"128\" height=\"128\"/></p>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "templateScope": "local",
+        "x": 900,
+        "y": 420,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "f805485d.b791f8",
+        "type": "ui_template",
+        "z": "371bdcb.f4bfe24",
+        "group": "9782f4f2.ddc9b8",
+        "name": " HTML Wind Dir",
+        "order": 6,
+        "width": "3",
+        "height": "3",
+        "format": "<p>&nbsp;</p>\n<p><img style=\"display: block; margin-top: auto; margin-bottom: auto; margin-left: auto; margin-right: auto;\" src={{msg.payload}} width=\"92\" height=\"92\"/></p>",
+        "storeOutMessages": true,
+        "fwdInMessages": false,
+        "templateScope": "local",
+        "x": 900,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    }
+]
